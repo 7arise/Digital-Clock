@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reloj digital — Chema</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+  <section class="clock-section" aria-label="Reloj digital">
+    <div class="clock-card" role="region" aria-labelledby="clock-title">
+      <header class="clock-header">
+        <h1 id="clock-title" class="app-title">Digital Clock</h1>
+
+        <!-- controles, tema y formato -->
+        <div class="controls">
+          <button class="theme-toggle" aria-pressed="false" aria-label="Cambiar tema claro u oscuro" title="Cambiar tema">
+            🌓
+          </button>
+
+          <button class="format-toggle" aria-pressed="false" aria-label="Cambiar formato 12/24 horas" title="12/24 horas">
+            12/24
+          </button>
+        </div>
+      </header>
+
+      <main class="clock-body" role="main" aria-live="polite">
+        <div class="time-group" aria-hidden="false">
+          <div class="time-box">
+            <div class="time-number hour_num" aria-label="Horas">00</div>
+            <div class="time-label">Hours</div>
+          </div>
+
+          <div class="colon" aria-hidden="true">:</div>
+
+          <div class="time-box">
+            <div class="time-number min_num" aria-label="Minutos">00</div>
+            <div class="time-label">Minutes</div>
+          </div>
+
+          <div class="colon" aria-hidden="true">:</div>
+
+          <div class="time-box">
+            <div class="time-number sec_num" aria-label="Segundos">00</div>
+            <div class="time-label">Seconds</div>
+          </div>
+
+          <div class="ampm-group" aria-hidden="false">
+            <div class="am_pm" aria-label="AM o PM">AM</div>
+            <div class="date-text" aria-label="Fecha legible">Wednesday, June 15th</div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="clock-footer">
+        <p class="small-note">Design · Chemon Style</p>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Script: usamos defer para que cargue después del HTML -->
+  <script src="scripts3.js" defer></script>
+</body>
+</html>

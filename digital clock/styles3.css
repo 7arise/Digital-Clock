@@ -1,0 +1,152 @@
+
+/* --- VARIABLES (modo claro por defecto) --- */
+:root{
+  --bg: #f1f8fc;            /* fondo página */
+  --card: #ffffff;          /* tarjeta reloj */
+  --muted: #94a8b8;         /* texto secundario */
+  --accent: #2f80ed;        /* color primario */
+  --accent-2: #ff6b6b;      /* color secundario */
+  --shadow: rgba(47,128,237,0.12);
+  --text: #072034;
+  --card-shadow: 0 10px 30px rgba(20,30,50,0.08);
+  --box-bg: linear-gradient(180deg, rgba(240,248,255,0.9), rgba(248,252,255,0.8));
+}
+
+/* ---  variables al poner el modo oscuro --- */
+:root.dark{
+  --bg: #2F3037;
+  --card: #2F3337;
+  --muted: #99a8b3;
+  --accent: #60a5fa;
+  --accent-2: #ff8a8a;
+  --shadow: rgba(0,0,0,0.45);
+  --text: #d9eefc;
+  --card-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  --box-bg: #384042;
+}
+
+/* --- reset y base --- */
+*{ box-sizing: border-box; margin:0; padding:0; }
+html,body{ height:100%; }
+body{
+  font-family: "Audiowide", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* --- seccion principal centrada --- */
+.clock-section{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+}
+
+/* --- tarjeta del reloj --- */
+.clock-card{
+  width: min(920px, 94%);
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  padding: 22px 26px;
+  display:flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* --- cabecera: título y controles --- */
+.clock-header{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+}
+.app-title{
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--text);
+}
+
+/* --- botones de control --- */
+.controls{ display:flex; gap:10px; align-items:center; }
+.controls button{
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor:pointer;
+  color: var(--muted);
+  font-weight:600;
+  transition: transform .12s ease, background-color .18s ease, color .18s ease;
+}
+.controls button:hover{ transform: translateY(-3px); color: var(--accent); }
+.controls button[aria-pressed="true"]{ background: rgba(47,128,237,0.06); color: var(--accent-2); }
+
+/* --- cuerpo principal (hora) --- */
+.clock-body{ display:flex; align-items:center; justify-content:center; padding:12px 8px 18px; }
+
+.time-group{ display:flex; align-items:center; gap:18px; }
+
+/* caja individual */
+.time-box{
+  width: 120px;
+  height: 96px;
+  background: var(--box-bg);
+  border-radius: 10px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  box-shadow: 0 8px 20px var(--shadow);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+/* números grandes */
+.time-number{
+  font-family: "Crimson Pro", monospace;
+  font-size: 40px;
+  color: var(--text);
+  margin-bottom:6px;
+  letter-spacing:1px;
+}
+
+/* etiquetas pequeñas */
+.time-label{
+  font-size:11px;
+  color:var(--muted);
+  text-transform: capitalize;
+  letter-spacing:1px;
+}
+
+/* separador ":" */
+.colon{
+  font-family: "Crimson Pro", monospace;
+  font-size:46px;
+  color:var(--muted);
+  padding: 0 6px;
+}
+
+/* contenedor AM/PM y fecha */
+.ampm-group{ display:flex; flex-direction:column; gap:6px; align-items:flex-start; margin-left:8px; }
+
+.am_pm{
+  font-weight:700;
+  font-size:14px;
+  color:var(--muted);
+  text-transform:uppercase;
+}
+
+/* fecha legible */
+.date-text{ font-size:14px; color:var(--muted); text-transform:capitalize; }
+
+/* footer */
+.clock-footer{ display:flex; justify-content:flex-end; padding-top:6px; }
+.small-note{ font-size:12px; color:var(--muted); }
+
+/* responsive */
+@media (max-width:640px){
+  .time-box{ width: 88px; height:76px; }
+  .time-number{ font-size:30px; }
+  .colon{ font-size:34px; }
+}
+
+/* transiciones suaves */
+.clock-card, .time-box, .controls button { transition: background-color .22s, color .18s, transform .12s, box-shadow .18s; }
